@@ -15,3 +15,8 @@ cookbook_file "/var/www/html/index.html" do
   source "index.html"
   mode "0644"
 end
+execute 'systemctl start httpd' do
+  #only_if { index_exists? }
+  not_if { index_exists? }
+end
+
