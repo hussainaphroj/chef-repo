@@ -20,13 +20,16 @@
 #  source "index.html"
 #  mode "0644"
 #end
-hello_httpd 'greet world' do
-  greeting "Hello"
-  action :create
-end
+#hello_httpd 'greet world' do
+#  greeting "Hello"
+#  action :create
+#end
 
-execute 'systemctl start httpd' do
+#execute 'systemctl start httpd' do
   #only_if { index_exists? }
-  not_if { index_exists? }
-end
-
+#  not_if { index_exists? }
+#end
+#
+include_recipe 'httpd::install'
+include_recipe 'httpd::config'
+include_recipe 'httpd::service'
