@@ -12,10 +12,18 @@ unless os.windows?
   end
 end
 
+ describe user('vikram') do
+    it { should exist }
+    skip 'This is an example test, replace with your own test.'
+  end
+
 describe port(80) do
   it { should_not be_listening }
   skip 'This is an example test, replace with your own test.'
 end
+ describe file('/tmp/afroz') do
+    its('content') { should match /afroz Hussain/ }
+  end
 
 describe command('git --version') do
   its('stdout') { should match /1\.8\.3/ }

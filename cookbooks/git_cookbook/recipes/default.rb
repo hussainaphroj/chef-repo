@@ -6,3 +6,7 @@
 log "This is default git recipe"
 package 'git'
 package 'httpd'
+user 'vikram'
+cookbook_file '/tmp/afroz' do
+  source 'hello'
+end 
